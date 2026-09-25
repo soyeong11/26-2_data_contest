@@ -7,13 +7,6 @@ KEPCO (한전 온) 종합 데이터 크롤러
 2. 전력공급 여유용량 (EWM104D04)
 3. 22.9kV / 154kV 차단기 여유 Bay (EWM100D00)
 4. 345kV 변전소 차단기 여유 Bay (EWM100D01)
-
-출력:
-  - 데이터셋/재생e_연계여유용량.csv
-  - 데이터셋/전력공급_여유용량.csv
-  - 데이터셋/차단기_여유Bay_154kV.csv
-  - 데이터셋/차단기_여유Bay_345kV.csv
-  - 데이터셋/KEPCO_전력망_종합통합.csv
 """
 
 import os
@@ -26,7 +19,7 @@ BASE = "https://online.kepco.co.kr"
 SAVE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "데이터셋")
 os.makedirs(SAVE_DIR, exist_ok=True)
 
-# 공통 헤더 생성 함수
+
 def get_headers(menu_id):
     return {
         "Content-Type": 'application/json; charset="UTF-8"',
@@ -42,10 +35,55 @@ def api_post(url, payload, headers, retry=3):
             r = requests.post(url, headers=headers, json=payload, timeout=20)
             r.raise_for_status()
             return r.json()
-        except Exception as e:
+        except Exception:
             if attempt < retry - 1:
                 time.sleep(2**attempt)
     return None
+
+
+def load_interim(interim_path):
+    """안전한 중간 저장 파일 로드 (빈 파일 또는 손상 파일 예외 처리)"""
+    if os.path.exists(interim_path):
+        try:
+            if os.path.getsize(interim_path) > 0:
+                prev = pd.read_csv(interim_path)
+                if not prev.empty and "_sido_code" in prev.columns:
+                    done = set(
+                        zip(
+                            prev["_sido_code"].astype(str),
+                            prev["_sigg_code"].astype(str),
+                        )
+                    )
+                    return prev.to_dict("records"), done
+        except Exception:
+            pass
+        os.remove(interim_path)
+    return [], set()
+
+
+def save_and_clean(all_rows, interim_path, final_path, num_cols):
+    """데이터 정제 및 최종 저장"""
+    if not all_rows:
+        print("수집된 데이터가 없습니다.")
+        return None
+
+    df = pd.DataFrame(all_rows).drop(
+        columns=["_sido_code", "_sigg_code"], errors="ignore"
+    )
+    for c in num_cols:
+        if c in df.columns:
+            df[c] = pd.to_numeric(df[c], errors="coerce")
+
+    df = df.dropna(subset=num_cols, how="all")
+    df.to_csv(final_path, index=False, encoding="utf-8-sig")
+
+    if os.path.exists(interim_path):
+        os.remove(interim_path)
+
+    print(
+        f"완료! {final_path} (총 {len(df)}행 / 변전소 {df['변전소'].nunique()}개)"
+    )
+    return final_path
 
 
 # ── 1. 재생e 연계 여유용량 (EWM094D00) ─────────────────────────────
@@ -85,19 +123,27 @@ def crawl_renw_supply():
             if (sido_code, sigg_code_5) in done_gu:
                 continue
 
-            # 재생e 연계 여유용량 API
+            # 재생e 여유용량 API 요청 (EWM094D00 전용 파라미터)
             d3 = api_post(
-                f"{BASE}/ew/api/energy/subStRenw",
+                f"{BASE}/ew/api/energy/subSt154",
                 {
-                    "dma_subStRenw": {
+                    "dma_subSt154": {
                         "sidoCode": sido_code,
                         "siggCode": sigg_code_3,
                         "emdCode": "",
+                        "year": "2026",
                     }
                 },
                 headers,
             )
-            rows = d3.get("dma_subStRenwlist", []) if d3 else []
+
+            # 서버 응답 key 처리 (dma_subSt154list 또는 dma_subStRenwlist 지원)
+            rows = []
+            if d3:
+                rows = d3.get("dma_subSt154list", []) or d3.get(
+                    "dma_subStRenwlist", []
+                )
+
             time.sleep(0.25)
 
             for row in rows:
@@ -106,7 +152,9 @@ def crawl_renw_supply():
                         "시도": row.get("SIDO_NM", sido_nm),
                         "시군구": row.get("SGG_NM", sigg_nm),
                         "변전소": row.get("PSPWP_NM", row.get("PSPWPNM", "")),
-                        "재생e_여유용량_MW": row.get("RENW_CAPA", ""),
+                        "재생e_여유용량_MW": row.get(
+                            "RENW_CAPA", row.get("THIS_YY", "")
+                        ),
                         "_sido_code": sido_code,
                         "_sigg_code": sigg_code_5,
                     }
@@ -329,9 +377,9 @@ def crawl_cbr_345():
             if (sido_code, sigg_code) in done_gu:
                 continue
 
-            # 345kV 전용 API 엔드포인트
+            # 345kV 차단기 API 호출
             d3 = api_post(
-                f"{BASE}/ew/cpct/retrieveCbrOvplsInfo345",
+                f"{BASE}/ew/cpct/retrieveCbrOvplsInfo",
                 {
                     "dma_reqParam": {
                         "sido_code": sido_code,
@@ -375,45 +423,6 @@ def crawl_cbr_345():
     return save_and_clean(all_rows, interim_path, final_path, bay_cols)
 
 
-# ── 유틸리티 함수 ──────────────────────────────────────────────────
-def load_interim(interim_path):
-    """중간 저장 파일이 있으면 불러오기"""
-    if os.path.exists(interim_path):
-        prev = pd.read_csv(interim_path)
-        done = set(
-            zip(prev["_sido_code"].astype(str), prev["_sigg_code"].astype(str))
-        )
-        print(f"-> 이전 중간 저장 데이터 로드: {len(prev)}행")
-        return prev.to_dict("records"), done
-    return [], set()
-
-
-def save_and_clean(all_rows, interim_path, final_path, num_cols):
-    """데이터 정제 및 최종 저장"""
-    if not all_rows:
-        print("수집된 데이터가 없습니다.")
-        return None
-
-    df = pd.DataFrame(all_rows).drop(
-        columns=["_sido_code", "_sigg_code"], errors="ignore"
-    )
-    for c in num_cols:
-        if c in df.columns:
-            df[c] = pd.to_numeric(df[c], errors="coerce")
-
-    # 수치 데이터가 모두 비어있거나 0인 행 제거
-    df = df.dropna(subset=num_cols, how="all")
-    df.to_csv(final_path, index=False, encoding="utf-8-sig")
-
-    if os.path.exists(interim_path):
-        os.remove(interim_path)
-
-    print(
-        f"완료! {final_path} (총 {len(df)}행 / 변전소 {df['변전소'].nunique()}개)"
-    )
-    return final_path
-
-
 # ── 5. 종합 데이터셋 통합 머지 ──────────────────────────────────────
 def merge_all_datasets():
     print(f"\n{'='*60}")
@@ -432,7 +441,7 @@ def merge_all_datasets():
     df_renw = pd.read_csv(p_renw)
     df_power = pd.read_csv(p_power)
 
-    # 1. 재생e + 전력공급 병합 (변전소 기준)
+    # 1. 전력공급 + 재생e 병합
     df_merged = pd.merge(
         df_power, df_renw[["변전소", "재생e_여유용량_MW"]], on="변전소", how="left"
     )
