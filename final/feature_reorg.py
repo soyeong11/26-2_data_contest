@@ -16,12 +16,19 @@ v2 (2026-10-04)
      ※ 같은 변전소가 '서로 다른' 시군구에 나오는 것은 KEPCO가 공급 변전소 기준으로
        응답하기 때문이며 정상 → 제거하지 않음 (예: 중부 변전소 = 종로·중구·은평·서대문·마포)
 
+최종 (2026-10-04)
+  7) [B] 용량 결측 6개 시도(부산·대구·울산·경북·경남·제주, 77행)는 분석 제외 → 분석대상=False
+         (행은 256개 유지: 팀 병합 시 다른 피처와 1:1로 붙이기 위함)
+  8) 기준연도 2029년, 장기 후보 2032년 시나리오 점수·순위 추가
+  9) 공유용(핵심 열만) / 상세(전체 열) 파일 분리
+
 입력 (같은 폴더)
   전력_지역별_읍면동_wide.csv, 전력_지역별_시군구_wide.csv, 행정시군구_기준행.csv, 개편매핑_법정동.csv
 출력
-  전력피쳐_시군구256_개편반영_v2_20261004.csv   ← 최종 피쳐
-  전력_시군구wide_256_개편반영_v2_20261004.csv  ← 재집계된 중간 wide
-  개편재배정_내역_v2_20261004.csv               ← 읍면동별 재배정·중복제거 내역
+  전력_최종피쳐_공유용_20261004.csv      ← ★ 팀 공유·병합용 (이 파일 하나만 공유)
+  전력피쳐_상세_256_20261004.csv         ← 전체 열 (EWM·병목·원값 등), 검증·부록용
+  전력_시군구wide_256_재집계_20261004.csv ← 재집계된 중간 wide
+  개편재배정_내역_20261004.csv           ← 읍면동별 재배정·중복제거 내역
 """
 import os
 import numpy as np
@@ -33,10 +40,14 @@ EMD_PATH = "전력_지역별_읍면동_wide.csv"
 SGG_PATH = "전력_지역별_시군구_wide.csv"
 BASE_PATH = "행정시군구_기준행.csv"
 MAP_PATH = "개편매핑_법정동.csv"
-TAG = "v2_20261004"
-OUT_FEAT = f"전력피쳐_시군구256_개편반영_{TAG}.csv"
-OUT_WIDE = f"전력_시군구wide_256_개편반영_{TAG}.csv"
+TAG = "20261004"
+OUT_SHARE = f"전력_최종피쳐_공유용_{TAG}.csv"
+OUT_FEAT = f"전력피쳐_상세_256_{TAG}.csv"
+OUT_WIDE = f"전력_시군구wide_256_재집계_{TAG}.csv"
 OUT_LOG = f"개편재배정_내역_{TAG}.csv"
+
+BASE_YEAR = 2029   # 기준연도: AIDC 가동 시점(약 3년 후), 22.9kV 비교 가능(2028~), 2028~2030 결과 안정
+LONG_YEAR = 2032   # 장기 후보 시나리오: 계획 증설 반영, 불확실성 큼
 
 # 345kV: 공급지역 텍스트가 상위 시 단위라 하위 구에 복제 (구 코드 → 신 코드들)
 COPY_345 = {41590: [41591, 41593, 41595, 41597]}
@@ -48,7 +59,14 @@ CBR_PREFIX = "차단기_변전소기준_"
 CLIP_NEGATIVE = True  # [C] 점수 계산 시 음수 여유율 0 절단
 
 # 기존 feature.py 계산식 (현재 파일에서 역산해 오차 1e-15 수준으로 일치 확인)
-W_CAP = {"전력공급229kV_2029년_합계": 0.1, "전력공급154kV_2029년_합계": 0.9}
+CAP_W = (0.1, 0.9)  # 22.9kV / 154kV 공급여유 가중치
+
+
+def cap_cols(year):
+    return {f"전력공급229kV_{year}년_합계": CAP_W[0], f"전력공급154kV_{year}년_합계": CAP_W[1]}
+
+
+W_CAP = cap_cols(BASE_YEAR)
 RATIO = {  # 출력컬럼: (여유, 전체)
     "차단기229kV_여유율": ("차단기_변전소기준_22.9kV여유_합계", "차단기_변전소기준_22.9kV전체_합계"),
     "차단기154kV_여유율": ("차단기_변전소기준_154kV여유_합계", "차단기_변전소기준_154kV전체_합계"),
@@ -187,17 +205,44 @@ def features(wide, base_codes_reassigned):
     f["전력피쳐_EWM"] = 0.5 * f["용량점수_EWM"] + 0.5 * f["접속점수_EWM"]
     f["전력피쳐_병목_EWM"] = np.sqrt(f["용량점수_EWM"] * f["접속점수_EWM"])
 
+    # [B] 분석 대상: 용량 자료가 있는 179개 지역
+    f["분석대상"] = ok
+    # 장기 후보 시나리오 (같은 계산식, 연도만 변경)
+    cap_l = sum(w * mm(wide.loc[ok, c], wide.loc[ok, c]) for c, w in cap_cols(LONG_YEAR).items())
+    f[f"용량점수_{LONG_YEAR}"] = np.nan
+    f.loc[ok, f"용량점수_{LONG_YEAR}"] = cap_l
+    f[f"전력피쳐_{LONG_YEAR}"] = 0.5 * f[f"용량점수_{LONG_YEAR}"] + 0.5 * f["접속점수"]
+    # 순위: 분석대상 179개 안에서 (1 = 가장 유리), 제외 지역은 빈칸
+    rk = lambda s: s.where(ok).rank(ascending=False, method="min").astype("Int64")
+    f["전력순위"] = rk(f["전력피쳐"])
+    f[f"전력순위_{LONG_YEAR}"] = rk(f[f"전력피쳐_{LONG_YEAR}"])
+
     f["개편재배정"] = f["지역코드"].isin(base_codes_reassigned)
     f["345kV_상위지역공유"] = wide["345kV_상위지역공유"].values
     f["변전소응답없음"] = wide["변전소응답없음"].values
-    cols = ["지역코드", "시도코드", "시도명", "시군구코드", "시군구명",
-            "용량점수", "접속점수", "전력피쳐", "전력피쳐_병목",
+    cols = ["지역코드", "시도코드", "시도명", "시군구코드", "시군구명", "분석대상",
+            "전력피쳐", "전력순위", "용량점수", "접속점수", "전력피쳐_병목",
+            f"전력피쳐_{LONG_YEAR}", f"전력순위_{LONG_YEAR}", f"용량점수_{LONG_YEAR}",
             "용량점수_EWM", "접속점수_EWM", "전력피쳐_EWM", "전력피쳐_병목_EWM",
             "용량데이터없음", "차단기229kV_여유율", "차단기154kV_여유율", "차단기345kV_여유율",
             "차단기229kV_여유율_원값", "차단기154kV_여유율_원값", "차단기345kV_여유율_원값",
             "음수여유율", "개편재배정", "345kV_상위지역공유", "변전소응답없음"]
     print("EWM 가중치  접속:", dict(zip(RATIO, wc.round(4))), " 용량:", dict(zip(W_CAP, wk.round(4))))
     return f[cols]
+
+
+SHARE_COLS = ["지역코드", "시도명", "시군구명", "분석대상",
+              "전력피쳐", "전력순위", "용량점수", "접속점수",
+              f"전력피쳐_{LONG_YEAR}", f"전력순위_{LONG_YEAR}", f"용량점수_{LONG_YEAR}",
+              "음수여유율", "개편재배정", "345kV_상위지역공유"]
+
+
+def share_table(f):
+    """팀 공유용: 병합 키 + 기준(2029)·장기(2032) 점수·순위 + 해석에 필요한 플래그만"""
+    s = f[SHARE_COLS].copy()
+    for c in ["전력피쳐", "용량점수", "접속점수", f"전력피쳐_{LONG_YEAR}", f"용량점수_{LONG_YEAR}"]:
+        s[c] = s[c].round(6)
+    return s
 
 
 def check(f, base):
@@ -209,6 +254,10 @@ def check(f, base):
         assert (f[ratio] >= 0).all().all() and (f["접속점수"] >= 0).all(), "절단 후 음수 남음"
     print("[검증] 256행 · 코드 유일 · 기준 코드/순서 일치 · 용량결측 77 · 점수 음수 0건 → 통과")
     print(f"  음수여유율 {int(f['음수여유율'].sum())}개 지역:", f.loc[f["음수여유율"], "시군구명"].tolist())
+    n = int(f["분석대상"].sum())
+    assert n == 179 and f["전력순위"].notna().sum() == n and f["전력순위"].max() <= n
+    assert f.loc[~f["분석대상"], ["전력피쳐", "전력순위"]].isna().all().all()
+    print(f"[검증] 분석대상 {n}개 · 순위 1~{int(f['전력순위'].max())} · 제외 지역 점수·순위 빈칸 → 통과")
 
 
 if __name__ == "__main__":
@@ -219,8 +268,9 @@ if __name__ == "__main__":
     reassigned = set(log["신코드"].dropna().astype(int)) | {k for v in COPY_345.values() for k in v}
     feat = features(wide, reassigned)
     check(feat, base)
+    share_table(feat).to_csv(OUT_SHARE, index=False, encoding="utf-8-sig")
     feat.to_csv(OUT_FEAT, index=False, encoding="utf-8-sig")
     wide.to_csv(OUT_WIDE, index=False, encoding="utf-8-sig")
     log.to_csv(OUT_LOG, index=False, encoding="utf-8-sig")
-    print(f"저장: {OUT_FEAT}, {OUT_WIDE}, {OUT_LOG}")
+    print(f"저장: ★{OUT_SHARE}, {OUT_FEAT}, {OUT_WIDE}, {OUT_LOG}")
     print(log["처리"].value_counts().to_string())
