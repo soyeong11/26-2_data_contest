@@ -1,0 +1,257 @@
+﻿시군구코드,지역코드,시도명,시군구명,분석대상,전력피쳐,전력순위,용량점수,접속점수,수용가능_1GW,수용가능_0.5GW,판정근거,전력피쳐_2032,전력순위_2032,참고등급,참고_접속순위,용량데이터없음,전력공급_무응답,음수여유율,345kV_상위지역공유
+11110,11110,서울특별시,종로구,True,0.123383,115,0.076415,0.17035,False,False,미충족,0.097035,129,False,,False,False,False,False
+11140,11140,서울특별시,중구,True,0.14642,104,0.106536,0.186305,False,False,미충족,0.094284,130,False,,False,False,False,False
+11170,11170,서울특별시,용산구,True,0.126886,112,0.070993,0.182778,False,False,미충족,0.09252,132,False,,False,False,False,False
+11200,11200,서울특별시,성동구,True,0.174921,92,0.153386,0.196456,False,False,미충족,0.152618,87,False,,False,False,False,False
+11215,11215,서울특별시,광진구,True,0.085266,141,0.011446,0.159086,False,False,미충족,0.120585,115,False,,False,False,False,False
+11230,11230,서울특별시,동대문구,True,0.135387,108,0.109548,0.161226,False,False,미충족,0.080613,146,False,,False,False,False,False
+11260,11260,서울특별시,중랑구,True,0.172407,93,0.225769,0.119044,False,False,미충족,0.121895,113,False,,False,False,False,False
+11290,11290,서울특별시,성북구,True,0.17611,91,0.194003,0.158217,False,False,미충족,0.131688,101,False,,False,False,False,False
+11305,11305,서울특별시,강북구,True,0.231929,72,0.268146,0.195712,False,False,미충족,0.15729,82,False,,False,False,False,False
+11320,11320,서울특별시,도봉구,True,0.325218,32,0.488797,0.161639,False,False,미충족,0.137603,96,False,,False,False,False,False
+11350,11350,서울특별시,노원구,True,0.180493,89,0.226257,0.134728,False,False,미충족,0.120298,116,False,,False,False,False,False
+11380,11380,서울특별시,은평구,True,0.076956,146,0.0,0.153913,False,False,미충족,0.078088,148,False,,False,False,False,False
+11410,11410,서울특별시,서대문구,True,0.067978,152,0.0,0.135956,False,False,미충족,0.069109,150,False,,False,False,False,False
+11440,11440,서울특별시,마포구,True,0.082861,144,0.050673,0.115049,False,False,미충족,0.065927,154,False,,False,False,False,False
+11470,11470,서울특별시,양천구,True,0.121994,117,0.0,0.243988,True,True,345kV 여유Bay,0.121994,112,False,,False,False,False,False
+11500,11500,서울특별시,강서구,True,0.145231,105,0.005422,0.28504,True,True,345kV 여유Bay,0.148983,90,False,,False,False,False,False
+11530,11530,서울특별시,구로구,True,0.122904,116,0.0,0.245809,True,True,345kV 여유Bay,0.122904,109,False,,False,False,False,False
+11545,11545,서울특별시,금천구,True,0.105519,124,0.0,0.211038,True,True,345kV 여유Bay,0.105519,123,False,,False,False,False,False
+11560,11560,서울특별시,영등포구,True,0.150858,99,0.0,0.301715,True,True,345kV 여유Bay,0.150858,89,False,,False,False,False,False
+11590,11590,서울특별시,동작구,True,0.243573,69,0.015663,0.471484,True,True,345kV 여유Bay,0.235742,45,False,,False,False,False,False
+11620,11620,서울특별시,관악구,True,0.150112,100,0.015663,0.284561,True,True,345kV 여유Bay,0.142281,93,False,,False,False,False,False
+11650,11650,서울특별시,서초구,True,0.072918,149,0.015663,0.130174,False,False,미충족,0.067576,152,False,,False,False,False,False
+11680,11680,서울특별시,강남구,True,0.1029,127,0.04685,0.158949,False,False,미충족,0.088427,142,False,,False,False,False,False
+11710,11710,서울특별시,송파구,True,0.234042,71,0.016682,0.451402,True,True,345kV 여유Bay,0.229806,50,False,,False,False,False,False
+11740,11740,서울특별시,강동구,True,0.254711,63,0.0,0.509422,True,True,345kV 여유Bay,0.254711,34,False,,False,False,False,False
+12110,12110,전남광주통합특별시,목포시,True,0.336461,30,0.594662,0.078259,False,False,미충족,0.125123,106,False,,False,False,False,False
+12130,12130,전남광주통합특별시,여수시,True,0.070313,150,0.1,0.040627,False,False,미충족,0.05787,157,False,,False,False,False,False
+12150,12150,전남광주통합특별시,순천시,False,,,,,True,True,345kV 여유Bay,,,True,69,False,True,False,False
+12170,12170,전남광주통합특별시,나주시,True,0.24694,66,0.397112,0.096768,True,True,345kV 여유Bay,0.535941,2,False,,False,False,False,False
+12190,12190,전남광주통합특별시,광양시,True,0.047825,166,0.0,0.09565,False,False,미충족,0.047825,164,False,,False,False,False,False
+12210,12210,전남광주통합특별시,동구,True,0.131243,110,0.183923,0.078563,False,False,미충족,0.092251,133,False,,False,False,False,False
+12240,12240,전남광주통합특별시,서구,True,0.111039,121,0.004819,0.217259,True,True,345kV 여유Bay,0.138748,95,False,,False,False,False,False
+12270,12270,전남광주통합특별시,남구,True,0.161633,96,0.183923,0.139342,True,True,345kV 여유Bay,0.12264,110,False,,False,False,False,False
+12300,12300,전남광주통합특별시,북구,True,0.149613,101,0.145137,0.154089,True,True,345kV 여유Bay,0.122548,111,False,,False,False,False,False
+12330,12330,전남광주통합특별시,광산구,True,0.275871,55,0.453439,0.098303,False,False,미충족,0.134759,98,False,,False,False,False,False
+12710,12710,전남광주통합특별시,담양군,True,0.148673,102,0.145137,0.152209,False,False,미충족,0.108681,121,False,,False,False,False,False
+12720,12720,전남광주통합특별시,곡성군,True,0.452651,12,0.766144,0.139158,False,True,154kV≥625MW(0.5GW만),0.188021,73,False,,False,False,False,False
+12730,12730,전남광주통합특별시,구례군,False,,,,,False,False,미충족,,,True,49,False,True,False,False
+12740,12740,전남광주통합특별시,고흥군,True,0.097294,132,0.1,0.094589,False,False,미충족,0.084851,145,False,,False,False,False,False
+12750,12750,전남광주통합특별시,보성군,True,0.335001,31,0.532402,0.1376,True,True,345kV 여유Bay,0.253394,36,False,,False,False,False,False
+12760,12760,전남광주통합특별시,화순군,True,0.131974,109,0.149956,0.113991,True,True,345kV 여유Bay,0.090801,138,False,,False,False,False,False
+12770,12770,전남광주통합특별시,장흥군,True,0.352655,27,0.505294,0.200017,True,True,345kV 여유Bay,0.273969,30,False,,False,False,False,False
+12780,12780,전남광주통합특별시,강진군,False,,,,,False,False,미충족,,,True,72,False,True,False,False
+12790,12790,전남광주통합특별시,해남군,True,0.064327,156,0.054819,0.073835,False,False,미충족,0.056601,160,False,,False,False,False,False
+12800,12800,전남광주통합특별시,영암군,True,0.376955,23,0.602793,0.151116,True,True,345kV 여유Bay,0.301355,15,False,,False,False,False,False
+12810,12810,전남광주통합특별시,무안군,True,0.34137,29,0.630807,0.051933,False,False,미충족,0.129155,105,False,,False,False,False,False
+12820,12820,전남광주통합특별시,함평군,True,0.245995,68,0.437777,0.054214,False,False,미충족,0.10192,125,False,,False,False,False,False
+12830,12830,전남광주통합특별시,영광군,True,0.104044,126,0.1,0.108089,False,False,미충족,0.215534,60,False,,False,False,False,False
+12840,12840,전남광주통합특별시,장성군,True,0.297553,46,0.438379,0.156727,False,False,미충족,0.15657,84,False,,False,False,False,False
+12850,12850,전남광주통합특별시,완도군,True,0.0506,165,0.026506,0.074694,False,False,미충족,0.045718,165,False,,False,False,False,False
+12860,12860,전남광주통합특별시,진도군,True,0.064512,155,0.016867,0.112156,False,False,미충족,0.059698,156,False,,False,False,False,False
+12870,12870,전남광주통합특별시,신안군,True,0.52758,3,1.0,0.05516,False,True,154kV≥625MW(0.5GW만),0.238835,41,False,,False,False,False,False
+26110,26110,부산광역시,중구,False,,,,,False,False,미충족,,,True,79,True,False,False,False
+26140,26140,부산광역시,서구,False,,,,,False,False,미충족,,,True,80,True,False,False,False
+26170,26170,부산광역시,동구,False,,,,,True,True,345kV 여유Bay,,,True,59,True,False,False,False
+26200,26200,부산광역시,영도구,False,,,,,False,False,미충족,,,True,76,True,False,False,False
+26230,26230,부산광역시,부산진구,False,,,,,True,True,345kV 여유Bay,,,True,50,True,False,False,False
+26260,26260,부산광역시,동래구,False,,,,,True,True,345kV 여유Bay,,,True,34,True,False,False,False
+26290,26290,부산광역시,남구,False,,,,,True,True,345kV 여유Bay,,,True,8,True,False,False,False
+26320,26320,부산광역시,북구,False,,,,,True,True,345kV 여유Bay,,,True,38,True,False,False,False
+26350,26350,부산광역시,해운대구,False,,,,,True,True,345kV 여유Bay,,,True,23,True,False,False,False
+26380,26380,부산광역시,사하구,False,,,,,False,False,미충족,,,True,75,True,False,False,False
+26410,26410,부산광역시,금정구,False,,,,,True,True,345kV 여유Bay,,,True,40,True,False,False,False
+26440,26440,부산광역시,강서구,False,,,,,True,True,345kV 여유Bay,,,True,33,True,False,False,False
+26470,26470,부산광역시,연제구,False,,,,,True,True,345kV 여유Bay,,,True,21,True,False,False,False
+26500,26500,부산광역시,수영구,False,,,,,True,True,345kV 여유Bay,,,True,35,True,False,False,False
+26530,26530,부산광역시,사상구,False,,,,,True,True,345kV 여유Bay,,,True,45,True,False,False,False
+26710,26710,부산광역시,기장군,False,,,,,True,True,345kV 여유Bay,,,True,27,True,False,False,False
+27110,27110,대구광역시,중구,False,,,,,False,False,미충족,,,True,63,True,False,False,False
+27140,27140,대구광역시,동구,False,,,,,True,True,345kV 여유Bay,,,True,11,True,False,False,False
+27170,27170,대구광역시,서구,False,,,,,False,False,미충족,,,True,57,True,False,False,False
+27200,27200,대구광역시,남구,False,,,,,False,False,미충족,,,True,48,True,False,False,False
+27230,27230,대구광역시,북구,False,,,,,False,False,미충족,,,True,65,True,False,False,False
+27260,27260,대구광역시,수성구,False,,,,,False,False,미충족,,,True,67,True,False,False,False
+27290,27290,대구광역시,달서구,False,,,,,True,True,345kV 여유Bay,,,True,26,True,False,False,False
+27710,27710,대구광역시,달성군,False,,,,,True,True,345kV 여유Bay,,,True,30,True,False,False,False
+27720,27720,대구광역시,군위군,False,,,,,True,True,345kV 여유Bay,,,True,2,True,False,False,False
+28125,28125,인천광역시,제물포구,True,0.0,174,0.0,0.0,False,False,미충족,0.0,174,False,,False,False,False,False
+28155,28155,인천광역시,영종구,False,,,,,True,True,345kV 여유Bay,,,True,46,False,True,False,False
+28177,28177,인천광역시,미추홀구,True,0.034779,171,0.0,0.069557,False,False,미충족,0.034779,171,False,,False,False,True,False
+28185,28185,인천광역시,연수구,True,0.007433,173,0.0,0.014865,False,False,미충족,0.007433,173,False,,False,False,True,False
+28200,28200,인천광역시,남동구,True,0.057105,159,0.0,0.114209,False,False,미충족,0.057105,159,False,,False,False,False,False
+28237,28237,인천광역시,부평구,True,0.083014,143,0.0,0.166027,True,True,345kV 여유Bay,0.087053,144,False,,False,False,False,False
+28245,28245,인천광역시,계양구,True,0.083749,142,0.0,0.167499,True,True,345kV 여유Bay,0.091183,136,False,,False,False,False,False
+28275,28275,인천광역시,서해구,True,0.040614,169,0.0,0.081229,True,True,345kV 여유Bay,0.040614,170,False,,False,False,False,False
+28290,28290,인천광역시,검단구,True,0.059906,157,0.0,0.119812,True,True,345kV 여유Bay,0.059906,155,False,,False,False,False,False
+28710,28710,인천광역시,강화군,True,0.124773,113,0.0,0.249546,True,True,345kV 여유Bay,0.124773,107,False,,False,False,False,False
+28720,28720,인천광역시,옹진군,False,,,,,False,False,미충족,,,True,81,False,True,False,False
+30110,30110,대전광역시,동구,True,0.090256,137,0.0,0.180512,False,False,미충족,0.090256,139,False,,False,False,False,False
+30140,30140,대전광역시,중구,True,0.091011,136,0.0,0.182023,False,False,미충족,0.091011,137,False,,False,False,False,False
+30170,30170,대전광역시,서구,True,0.306026,39,0.415255,0.196797,False,False,미충족,0.098399,127,False,,False,False,False,False
+30200,30200,대전광역시,유성구,True,0.311546,37,0.448388,0.174705,False,False,미충족,0.087352,143,False,,False,False,False,False
+30230,30230,대전광역시,대덕구,True,0.283463,51,0.418267,0.148658,False,False,미충족,0.074329,149,False,,False,False,False,False
+31110,31110,울산광역시,중구,False,,,,,True,True,345kV 여유Bay,,,True,7,True,False,False,False
+31140,31140,울산광역시,남구,False,,,,,True,True,345kV 여유Bay,,,True,25,True,False,False,False
+31170,31170,울산광역시,동구,False,,,,,False,False,미충족,,,True,39,True,False,False,False
+31200,31200,울산광역시,북구,False,,,,,False,False,미충족,,,True,43,True,False,False,False
+31710,31710,울산광역시,울주군,False,,,,,True,True,345kV 여유Bay,,,True,16,True,False,False,False
+36110,36110,세종특별자치시,세종특별자치시,True,0.305231,42,0.464051,0.146411,False,False,미충족,0.107331,122,False,,False,False,False,False
+41111,41111,경기도,수원시 장안구,True,0.289434,49,0.004819,0.574048,True,True,345kV 여유Bay,0.287476,24,False,,False,False,False,False
+41113,41113,경기도,수원시 권선구,True,0.346345,28,0.123033,0.569657,True,True,345kV 여유Bay,0.332888,9,False,,False,False,False,False
+41115,41115,경기도,수원시 팔달구,True,0.285074,50,0.001807,0.568341,True,True,345kV 여유Bay,0.28417,26,False,,False,False,False,False
+41117,41117,경기도,수원시 영통구,True,0.298063,45,0.0,0.596127,True,True,345kV 여유Bay,0.298063,19,False,,False,False,False,False
+41131,41131,경기도,성남시 수정구,True,0.185978,87,0.080447,0.291509,True,True,345kV 여유Bay,0.16592,79,False,,False,False,False,False
+41133,41133,경기도,성남시 중원구,True,0.17203,94,0.080447,0.263612,True,True,345kV 여유Bay,0.151971,88,False,,False,False,False,False
+41135,41135,경기도,성남시 분당구,True,0.11798,119,0.0,0.235961,True,True,345kV 여유Bay,0.11798,117,False,,False,False,False,False
+41150,41150,경기도,의정부시,True,0.148523,103,0.0,0.297046,True,True,345kV 여유Bay,0.148523,91,False,,False,False,False,False
+41171,41171,경기도,안양시 만안구,True,0.069123,151,0.001807,0.136438,False,False,미충족,0.068219,151,False,,False,False,False,False
+41173,41173,경기도,안양시 동안구,True,0.139232,107,0.236313,0.04215,False,False,미충족,0.131343,102,False,,False,False,False,False
+41192,41192,경기도,부천시 원미구,True,0.05446,162,0.0,0.10892,True,True,345kV 여유Bay,0.05446,161,False,,False,False,True,False
+41194,41194,경기도,부천시 소사구,True,0.030915,172,0.0,0.06183,False,False,미충족,0.030915,172,False,,False,False,False,False
+41196,41196,경기도,부천시 오정구,True,0.123987,114,0.0,0.247973,True,True,345kV 여유Bay,0.123987,108,False,,False,False,False,False
+41210,41210,경기도,광명시,True,0.143917,106,0.0,0.287835,True,True,345kV 여유Bay,0.143917,92,False,,False,False,False,False
+41220,41220,경기도,평택시,True,0.305892,40,0.000602,0.611182,True,True,345kV 여유Bay,0.386967,6,False,,False,False,False,False
+41250,41250,경기도,동두천시,True,0.18234,88,0.0,0.364681,True,True,345kV 여유Bay,0.18234,76,False,,False,False,False,False
+41271,41271,경기도,안산시 상록구,True,0.443577,14,0.779629,0.107524,False,True,154kV≥625MW(0.5GW만),0.189913,70,False,,False,False,False,False
+41273,41273,경기도,안산시 단원구,True,0.452524,13,0.779629,0.125419,False,True,154kV≥625MW(0.5GW만),0.19886,66,False,,False,False,False,False
+41281,41281,경기도,고양시 덕양구,True,0.105192,125,0.0,0.210383,True,True,345kV 여유Bay,0.105192,124,False,,False,False,False,False
+41285,41285,경기도,고양시 일산동구,True,0.089672,139,0.0,0.179344,True,True,345kV 여유Bay,0.089672,141,False,,False,False,False,False
+41287,41287,경기도,고양시 일산서구,True,0.121157,118,0.0,0.242314,True,True,345kV 여유Bay,0.121157,114,False,,False,False,False,False
+41290,41290,경기도,과천시,True,0.043694,167,0.001807,0.08558,True,True,345kV 여유Bay,0.04279,168,False,,False,False,False,False
+41310,41310,경기도,구리시,True,0.176754,90,0.0,0.353508,True,True,345kV 여유Bay,0.218474,58,False,,False,False,False,False
+41360,41360,경기도,남양주시,True,0.208934,85,0.0,0.417867,True,True,345kV 여유Bay,0.275313,29,False,,False,False,False,False
+41370,41370,경기도,오산시,True,0.52092,4,0.674436,0.367403,True,True,345kV 여유Bay,0.306215,14,False,,False,False,False,False
+41390,41390,경기도,시흥시,True,0.427877,16,0.427674,0.428079,True,True,345kV 여유Bay,0.298485,18,False,,False,False,False,False
+41410,41410,경기도,군포시,True,0.268947,57,0.028313,0.509582,True,True,345kV 여유Bay,0.263841,32,False,,False,False,False,False
+41430,41430,경기도,의왕시,True,0.080102,145,0.118816,0.041388,False,False,미충족,0.130962,103,False,,False,False,False,False
+41450,41450,경기도,하남시,True,0.305372,41,0.172316,0.438427,True,True,345kV 여유Bay,0.24943,37,False,,False,False,False,False
+41461,41461,경기도,용인시 처인구,True,0.225038,76,0.0,0.450077,True,True,345kV 여유Bay,0.225038,53,False,,False,False,False,False
+41463,41463,경기도,용인시 기흥구,True,0.212035,83,0.006024,0.418047,True,True,345kV 여유Bay,0.210607,61,False,,False,False,False,False
+41465,41465,경기도,용인시 수지구,True,0.257968,61,0.0,0.515937,True,True,345kV 여유Bay,0.28014,27,False,,False,False,False,False
+41480,41480,경기도,파주시,True,0.303092,43,0.0,0.606183,True,True,345kV 여유Bay,0.357222,7,False,,False,False,False,False
+41500,41500,경기도,이천시,True,0.237575,70,0.0,0.475151,True,True,345kV 여유Bay,0.237575,44,False,,False,False,False,False
+41550,41550,경기도,안성시,True,0.276387,54,0.0,0.552774,True,True,345kV 여유Bay,0.316782,11,False,,False,False,False,False
+41570,41570,경기도,김포시,True,0.220247,80,0.0,0.440494,True,True,345kV 여유Bay,0.220247,56,False,,False,False,False,False
+41591,41591,경기도,화성시 만세구,True,0.231458,73,0.0,0.462916,True,True,345kV 여유Bay,0.231458,47,False,,False,False,False,True
+41593,41593,경기도,화성시 효행구,True,0.32514,33,0.112977,0.537303,True,True,345kV 여유Bay,0.29205,23,False,,False,False,False,True
+41595,41595,경기도,화성시 병점구,True,0.223413,77,0.0,0.446826,True,True,345kV 여유Bay,0.223413,54,False,,False,False,False,True
+41597,41597,경기도,화성시 동탄구,True,0.499606,6,0.603352,0.395861,True,True,345kV 여유Bay,0.294878,22,False,,False,False,False,True
+41610,41610,경기도,광주시,True,0.277243,53,0.0,0.554486,True,True,345kV 여유Bay,0.277243,28,False,,False,False,False,False
+41630,41630,경기도,양주시,True,0.211407,84,0.0,0.422814,True,True,345kV 여유Bay,0.258912,33,False,,False,False,False,False
+41650,41650,경기도,포천시,True,0.171473,95,0.0,0.342946,True,True,345kV 여유Bay,0.298638,17,False,,False,False,False,False
+41670,41670,경기도,여주시,True,0.057808,158,0.0,0.115616,False,False,미충족,0.057808,158,False,,False,False,False,False
+41800,41800,경기도,연천군,True,0.12837,111,0.0,0.256741,False,False,미충족,0.227128,52,False,,False,False,False,False
+41820,41820,경기도,가평군,True,0.393918,21,0.455664,0.332172,False,False,미충족,0.248623,38,False,,False,False,False,False
+41830,41830,경기도,양평군,True,0.31793,35,0.455664,0.180196,False,False,미충족,0.207375,64,False,,False,False,False,False
+43111,43111,충청북도,청주시 상당구,True,0.300667,44,0.0,0.601335,True,True,345kV 여유Bay,0.300667,16,False,,False,False,False,False
+43112,43112,충청북도,청주시 서원구,True,0.295768,48,0.0,0.591536,True,True,345kV 여유Bay,0.295768,20,False,,False,False,False,False
+43113,43113,충청북도,청주시 흥덕구,True,0.309475,38,0.001205,0.617744,True,True,345kV 여유Bay,0.308872,13,False,,False,False,False,False
+43114,43114,충청북도,청주시 청원구,True,0.296364,47,0.001205,0.591523,True,True,345kV 여유Bay,0.295762,21,False,,False,False,False,False
+43130,43130,충청북도,충주시,True,0.381017,22,0.623369,0.138664,False,False,미충족,0.195757,68,False,,False,False,False,False
+43150,43150,충청북도,제천시,True,0.483054,8,0.608356,0.357751,True,True,345kV 여유Bay,0.216654,59,False,,False,False,False,False
+43720,43720,충청북도,보은군,True,0.089856,138,0.0,0.179712,True,True,345kV 여유Bay,0.089856,140,False,,False,False,False,False
+43730,43730,충청북도,옥천군,True,0.100542,130,0.0,0.201084,True,True,345kV 여유Bay,0.100542,126,False,,False,False,False,False
+43740,43740,충청북도,영동군,True,0.092772,134,0.003012,0.182531,True,True,345kV 여유Bay,0.091266,134,False,,False,False,False,False
+43745,43745,충청북도,증평군,True,0.043555,168,0.0,0.087109,False,False,미충족,0.043555,167,False,,False,False,False,False
+43750,43750,충청북도,진천군,True,0.054679,161,0.001205,0.108152,False,False,미충족,0.054076,162,False,,False,False,False,False
+43760,43760,충청북도,괴산군,True,0.106592,123,0.04824,0.164943,False,False,미충족,0.094106,131,False,,False,False,False,False
+43770,43770,충청북도,음성군,True,0.102286,129,0.13851,0.066061,False,False,미충족,0.044795,166,False,,False,False,False,False
+43800,43800,충청북도,단양군,True,0.25245,64,0.206122,0.298778,True,True,345kV 여유Bay,0.191659,69,False,,False,False,False,False
+44131,44131,충청남도,천안시 동남구,True,0.230462,74,0.001205,0.459718,True,True,345kV 여유Bay,0.229859,49,False,,False,False,False,False
+44133,44133,충청남도,천안시 서북구,True,0.219284,82,0.001205,0.437363,True,True,345kV 여유Bay,0.218682,57,False,,False,False,False,False
+44150,44150,충청남도,공주시,True,0.250499,65,0.187238,0.31376,False,False,미충족,0.15688,83,False,,False,False,False,False
+44180,44180,충청남도,보령시,True,0.484377,7,0.73461,0.234145,False,True,154kV≥625MW(0.5GW만),0.205071,65,False,,False,False,False,False
+44200,44200,충청남도,아산시,True,0.22939,75,0.0,0.458781,True,True,345kV 여유Bay,0.22939,51,False,,False,False,False,False
+44210,44210,충청남도,서산시,True,0.946025,1,0.892051,1.0,True,True,345kV 여유Bay,0.666043,1,False,,False,False,False,False
+44230,44230,충청남도,논산시,True,0.413825,17,0.621633,0.206018,False,False,미충족,0.163537,80,False,,False,False,False,False
+44250,44250,충청남도,계룡시,True,0.117069,120,0.0,0.234139,False,False,미충족,0.117069,119,False,,False,False,False,False
+44270,44270,충청남도,당진시,True,0.535168,2,0.520956,0.549379,True,True,345kV 여유Bay,0.389804,5,False,,False,False,False,False
+44710,44710,충청남도,금산군,True,0.052148,163,0.0,0.104296,False,False,미충족,0.052148,163,False,,False,False,False,False
+44760,44760,충청남도,부여군,True,0.477402,9,0.765356,0.189447,False,True,154kV≥625MW(0.5GW만),0.18938,71,False,,False,False,False,False
+44770,44770,충청남도,서천군,True,0.056739,160,0.0,0.113477,False,False,미충족,0.131939,100,False,,False,False,False,False
+44790,44790,충청남도,청양군,True,0.091266,135,0.0,0.182531,False,False,미충족,0.091266,135,False,,False,False,False,False
+44800,44800,충청남도,홍성군,True,0.246177,67,0.351747,0.140608,False,False,미충족,0.154196,86,False,,False,False,False,False
+44810,44810,충청남도,예산군,True,0.257947,62,0.346927,0.168966,False,False,미충족,0.167697,78,False,,False,False,False,False
+44825,44825,충청남도,태안군,True,0.273502,56,0.455455,0.091549,False,False,미충족,0.158883,81,False,,False,False,False,False
+47111,47111,경상북도,포항시 남구,False,,,,,True,True,345kV 여유Bay,,,True,3,True,False,False,False
+47113,47113,경상북도,포항시 북구,False,,,,,False,False,미충족,,,True,77,True,False,False,False
+47130,47130,경상북도,경주시,False,,,,,True,True,345kV 여유Bay,,,True,28,True,False,False,False
+47150,47150,경상북도,김천시,False,,,,,False,False,미충족,,,True,62,True,False,False,False
+47170,47170,경상북도,안동시,False,,,,,True,True,345kV 여유Bay,,,True,15,True,False,False,False
+47190,47190,경상북도,구미시,False,,,,,True,True,345kV 여유Bay,,,True,19,True,False,False,False
+47210,47210,경상북도,영주시,False,,,,,True,True,345kV 여유Bay,,,True,14,True,False,False,False
+47230,47230,경상북도,영천시,False,,,,,True,True,345kV 여유Bay,,,True,13,True,False,False,False
+47250,47250,경상북도,상주시,False,,,,,True,True,345kV 여유Bay,,,True,5,True,False,False,False
+47280,47280,경상북도,문경시,False,,,,,True,True,345kV 여유Bay,,,True,10,True,False,False,False
+47290,47290,경상북도,경산시,False,,,,,True,True,345kV 여유Bay,,,True,18,True,False,False,False
+47730,47730,경상북도,의성군,False,,,,,True,True,345kV 여유Bay,,,True,1,True,False,False,False
+47750,47750,경상북도,청송군,False,,,,,True,True,345kV 여유Bay,,,True,24,True,False,False,False
+47760,47760,경상북도,영양군,False,,,,,True,True,345kV 여유Bay,,,True,17,True,False,False,False
+47770,47770,경상북도,영덕군,False,,,,,True,True,345kV 여유Bay,,,True,4,True,False,False,False
+47820,47820,경상북도,청도군,False,,,,,False,False,미충족,,,True,41,True,False,False,False
+47830,47830,경상북도,고령군,False,,,,,True,True,345kV 여유Bay,,,True,22,True,False,False,False
+47840,47840,경상북도,성주군,False,,,,,False,False,미충족,,,True,61,True,False,False,False
+47850,47850,경상북도,칠곡군,False,,,,,False,False,미충족,,,True,73,True,False,False,False
+47900,47900,경상북도,예천군,False,,,,,True,True,345kV 여유Bay,,,True,6,True,False,False,False
+47920,47920,경상북도,봉화군,False,,,,,True,True,345kV 여유Bay,,,True,12,True,False,False,False
+47930,47930,경상북도,울진군,False,,,,,True,True,345kV 여유Bay,,,True,9,True,False,False,False
+47940,47940,경상북도,울릉군,False,,,,,False,False,응답없음,,,False,,True,False,False,False
+48121,48121,경상남도,창원시 의창구,False,,,,,True,True,345kV 여유Bay,,,True,42,True,False,False,False
+48123,48123,경상남도,창원시 성산구,False,,,,,True,True,345kV 여유Bay,,,True,53,True,False,False,False
+48125,48125,경상남도,창원시 마산합포구,False,,,,,True,True,345kV 여유Bay,,,True,56,True,False,False,False
+48127,48127,경상남도,창원시 마산회원구,False,,,,,True,True,345kV 여유Bay,,,True,29,True,False,False,False
+48129,48129,경상남도,창원시 진해구,False,,,,,True,True,345kV 여유Bay,,,True,36,True,False,False,False
+48170,48170,경상남도,진주시,False,,,,,False,False,미충족,,,True,55,True,False,False,False
+48220,48220,경상남도,통영시,False,,,,,False,False,미충족,,,True,58,True,False,False,False
+48240,48240,경상남도,사천시,False,,,,,True,True,345kV 여유Bay,,,True,47,True,False,False,False
+48250,48250,경상남도,김해시,False,,,,,True,True,345kV 여유Bay,,,True,20,True,False,False,False
+48270,48270,경상남도,밀양시,False,,,,,False,False,미충족,,,True,60,True,False,False,False
+48310,48310,경상남도,거제시,False,,,,,False,False,미충족,,,True,64,True,False,False,False
+48330,48330,경상남도,양산시,False,,,,,True,True,345kV 여유Bay,,,True,32,True,False,False,False
+48720,48720,경상남도,의령군,False,,,,,False,False,미충족,,,True,51,True,False,False,False
+48730,48730,경상남도,함안군,False,,,,,False,False,미충족,,,True,68,True,False,False,False
+48740,48740,경상남도,창녕군,False,,,,,False,False,미충족,,,True,70,True,False,False,False
+48820,48820,경상남도,고성군,False,,,,,True,True,345kV 여유Bay,,,True,31,True,False,False,False
+48840,48840,경상남도,남해군,False,,,,,False,False,미충족,,,True,66,True,False,False,False
+48850,48850,경상남도,하동군,False,,,,,False,False,미충족,,,True,71,True,False,False,False
+48860,48860,경상남도,산청군,False,,,,,False,False,미충족,,,True,37,True,False,False,False
+48870,48870,경상남도,함양군,False,,,,,False,False,미충족,,,True,51,True,False,False,False
+48880,48880,경상남도,거창군,False,,,,,False,False,미충족,,,True,54,True,False,False,False
+48890,48890,경상남도,합천군,False,,,,,False,False,미충족,,,True,44,True,False,False,False
+50110,50110,제주특별자치도,제주시,False,,,,,False,False,미충족,,,True,74,True,False,False,False
+50130,50130,제주특별자치도,서귀포시,False,,,,,False,False,미충족,,,True,78,True,False,False,False
+51110,51110,강원특별자치도,춘천시,True,0.28237,52,0.351397,0.213343,False,False,미충족,0.220979,55,False,,False,False,False,False
+51130,51130,강원특별자치도,원주시,True,0.265871,59,0.40981,0.121932,False,False,미충족,0.117877,118,False,,False,False,False,False
+51150,51150,강원특별자치도,강릉시,True,0.459835,11,0.502235,0.417436,True,True,345kV 여유Bay,0.310906,12,False,,False,False,False,False
+51170,51170,강원특별자치도,동해시,True,0.22177,78,0.097129,0.34641,True,True,345kV 여유Bay,0.196602,67,False,,False,False,False,False
+51190,51190,강원특별자치도,태백시,True,0.050701,164,0.053614,0.047788,False,False,미충족,0.042446,169,False,,False,False,False,False
+51210,51210,강원특별자치도,속초시,True,0.356054,26,0.007229,0.704879,True,True,345kV 여유Bay,0.353797,8,False,,False,False,False,False
+51230,51230,강원특별자치도,삼척시,True,0.372898,24,0.347644,0.398153,True,True,345kV 여유Bay,0.254178,35,False,,False,False,False,False
+51720,51720,강원특별자치도,홍천군,True,0.261613,60,0.294144,0.229082,False,False,미충족,0.188095,72,False,,False,False,False,False
+51730,51730,강원특별자치도,횡성군,True,0.267517,58,0.349822,0.185213,False,False,미충족,0.18539,74,False,,False,False,False,False
+51750,51750,강원특별자치도,영월군,True,0.203883,86,0.288467,0.119299,False,False,미충족,0.131946,99,False,,False,False,False,False
+51760,51760,강원특별자치도,평창군,True,0.16004,98,0.238187,0.081892,False,False,미충족,0.113242,120,False,,False,False,False,False
+51770,51770,강원특별자치도,정선군,True,0.21998,81,0.331285,0.108675,False,False,미충족,0.141176,94,False,,False,False,False,False
+51780,51780,강원특별자치도,철원군,True,0.394649,20,0.648045,0.141252,False,False,미충족,0.243102,40,False,,False,False,False,False
+51790,51790,강원특별자치도,화천군,True,0.221351,79,0.280915,0.161787,False,False,미충족,0.134927,97,False,,False,False,False,False
+51800,51800,강원특별자치도,양구군,True,0.102538,128,0.038554,0.166522,False,False,미충족,0.097288,128,False,,False,False,False,False
+51810,51810,강원특별자치도,인제군,True,0.406734,19,0.064458,0.74901,True,True,345kV 여유Bay,0.398261,3,False,,False,False,False,False
+51820,51820,강원특별자치도,고성군,True,0.088451,140,0.071084,0.105817,False,False,미충족,0.079153,147,False,,False,False,False,False
+51830,51830,강원특별자치도,양양군,True,0.475533,10,0.196204,0.754862,True,True,345kV 여유Bay,0.394883,4,False,,False,False,False,False
+52111,52111,전북특별자치도,전주시 완산구,True,0.316982,36,0.26648,0.367484,True,True,345kV 여유Bay,0.267152,31,False,,False,False,False,False
+52113,52113,전북특별자치도,전주시 덕진구,True,0.410228,18,0.421788,0.398669,True,True,345kV 여유Bay,0.327376,10,False,,False,False,False,False
+52130,52130,전북특별자치도,군산시,True,0.430603,15,0.68324,0.177966,True,True,345kV 여유Bay,0.234798,46,False,,False,False,False,False
+52140,52140,전북특별자치도,익산시,True,0.161414,97,0.033133,0.289695,True,True,345kV 여유Bay,0.286654,25,False,,False,False,False,False
+52180,52180,전북특별자치도,정읍시,True,0.368046,25,0.522905,0.213186,True,True,345kV 여유Bay,0.208782,63,False,,False,False,False,False
+52190,52190,전북특별자치도,남원시,True,0.076342,148,0.074699,0.077984,False,False,미충족,0.066594,153,False,,False,False,False,False
+52210,52210,전북특별자치도,김제시,True,0.320603,34,0.421788,0.219418,True,True,345kV 여유Bay,0.237751,43,False,,False,False,False,False
+52710,52710,전북특별자치도,완주군,True,0.109595,122,0.0,0.219191,True,True,345kV 여유Bay,0.231173,48,False,,False,False,False,False
+52720,52720,전북특별자치도,진안군,True,0.076803,147,0.0,0.153606,False,False,미충족,0.210401,62,False,,False,False,False,False
+52730,52730,전북특별자치도,무주군,True,0.039937,170,0.0,0.079875,False,False,미충족,0.129683,104,False,,False,False,False,False
+52740,52740,전북특별자치도,장수군,True,0.065147,154,0.0,0.130294,False,False,미충족,0.183169,75,False,,False,False,False,False
+52750,52750,전북특별자치도,임실군,True,0.065707,153,0.074699,0.056716,False,False,미충족,0.154783,85,False,,False,False,False,False
+52770,52770,전북특별자치도,순창군,True,0.511189,5,0.766144,0.256234,False,True,154kV≥625MW(0.5GW만),0.246559,39,False,,False,False,False,False
+52790,52790,전북특별자치도,고창군,True,0.096676,133,0.040361,0.152991,True,True,345kV 여유Bay,0.237986,42,False,,False,False,True,False
+52800,52800,전북특별자치도,부안군,True,0.099844,131,0.0,0.199687,True,True,345kV 여유Bay,0.178051,77,False,,False,False,False,False
