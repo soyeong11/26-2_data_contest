@@ -55,6 +55,13 @@ F_OUT = f"전력_시군구wide_256_재집계_{TAG}.csv"
 F_LOG = f"개편재배정_내역_{TAG}.csv"
 F_TODO = f"개편매핑_추가필요_{TAG}.csv"
 
+# 분석에서 뺄 (개편전코드, 읍면동명) — 개편매핑_법정동.csv보다 우선 적용됨 (2026-10-06 결정)
+EXCLUDE_EMD = {
+    ("28140", "숭의동"): "인천 동구 조회 응답이나 숭의동은 미추홀구 소재 — 매핑 불가, 분석 제외",
+    ("28260", "금곡동"): "인천 서구 조회 응답 — 매핑 불가, 분석 제외",
+    ("41190", "부개동"): "부천시 조회 응답이나 부개동은 인천 부평구 소재(부평구 자체 응답에 같은 변전소 있음) — 분석 제외",
+}
+
 ENERGY = ("sup229", "sup154", "renw")
 SITE_BLOCKS = ("sup229", "sup154", "renw", "cbr")      # 변전소 소재지 기준 블록 (345kV 제외)
 BAY_COLS = list(kc.CBR_MAP)
@@ -87,6 +94,11 @@ def load_map(std):
     if p is None:
         sys.exit(f"!! {F_MAP} 없음 (찾은 위치: {MAP_CANDIDATES})")
     m = read_csv(p)
+    # 코드에 적은 제외 목록을 덧붙이고, 같은 (개편전코드, 읍면동명)이 파일에 있으면 제외 쪽을 남김
+    ex = pd.DataFrame([{"개편전코드": o, "읍면동명": e, "신코드": "제외", "신시군구명": "", "근거": why}
+                       for (o, e), why in EXCLUDE_EMD.items()])
+    m = pd.concat([m, ex], ignore_index=True)
+    m = m[~m.assign(_k=m["읍면동명"].map(nm_key)).duplicated(["개편전코드", "_k"], keep="last")]
     m["old"], m["new"] = m["개편전코드"].str.strip(), m["신코드"].str.strip()
     m = m[m["new"] != ""]
     bad = set(m["new"]) - set(std["code"]) - {"제외"}
@@ -96,7 +108,8 @@ def load_map(std):
     clash = m.groupby(["old", "k"])["new"].nunique()
     if (clash > 1).any():
         sys.exit(f"!! {F_MAP}에서 같은 (개편전코드, 읍면동명)이 서로 다른 신코드로 감: {clash[clash > 1].index.tolist()}")
-    print(f"  개편매핑: {os.path.abspath(p)}  ({len(m)}행, 개편전코드 {m['old'].nunique()}개)")
+    print(f"  개편매핑: {os.path.abspath(p)}  ({len(m)}행 = 파일 + 코드 내 제외 {len(EXCLUDE_EMD)}개, "
+          f"개편전코드 {m['old'].nunique()}개)")
     return m
 
 
