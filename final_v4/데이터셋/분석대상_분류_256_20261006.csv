@@ -76,7 +76,7 @@
 27290,대구광역시,달서구,True,True,True,True,True,False,분석대상,,False
 27710,대구광역시,달성군,True,True,True,True,True,False,분석대상,,False
 27720,대구광역시,군위군,True,True,True,True,True,False,분석대상,,False
-28125,인천광역시,제물포구,True,True,False,True,True,False,참고등급,R4 차단기 무응답,False
+28125,인천광역시,제물포구,True,True,False,True,True,False,분석대상,,False
 28155,인천광역시,영종구,False,False,True,True,True,False,참고등급,R3 154kV 전력공급 무응답,False
 28177,인천광역시,미추홀구,True,True,True,True,True,False,분석대상,,False
 28185,인천광역시,연수구,True,True,True,True,True,False,분석대상,,False
@@ -84,7 +84,7 @@
 28237,인천광역시,부평구,True,True,True,True,True,False,분석대상,,False
 28245,인천광역시,계양구,True,True,True,True,True,False,분석대상,,False
 28275,인천광역시,서해구,True,True,True,True,True,False,분석대상,,False
-28290,인천광역시,검단구,True,True,False,True,True,False,참고등급,R4 차단기 무응답,False
+28290,인천광역시,검단구,True,True,False,True,True,False,분석대상,,False
 28710,인천광역시,강화군,True,True,True,True,True,False,분석대상,,False
 28720,인천광역시,옹진군,False,False,True,False,True,False,참고등급,R3 154kV 전력공급 무응답,False
 30110,대전광역시,동구,True,True,True,False,True,False,분석대상,,False
@@ -187,7 +187,7 @@
 47280,경상북도,문경시,True,True,True,True,True,False,분석대상,,False
 47290,경상북도,경산시,True,True,True,True,True,False,분석대상,,False
 47730,경상북도,의성군,True,True,True,True,True,False,분석대상,,False
-47750,경상북도,청송군,True,True,False,True,True,False,참고등급,R4 차단기 무응답,False
+47750,경상북도,청송군,True,True,False,True,True,False,분석대상,,False
 47760,경상북도,영양군,True,True,True,True,True,False,분석대상,,False
 47770,경상북도,영덕군,True,True,True,True,True,False,분석대상,,False
 47820,경상북도,청도군,True,True,True,True,True,False,분석대상,,False
