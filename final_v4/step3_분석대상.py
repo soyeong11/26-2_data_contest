@@ -33,7 +33,7 @@ TAG = datetime.now().strftime("%Y%m%d")
 OUT = os.path.join(DATA, f"분석대상_분류_256_{TAG}.csv")
 OLD_GLOB = os.path.join(HERE, "..", "final_v3", "데이터셋", "전력_최종피쳐_공유용_v3_*.csv")
 
-REQUIRE_154 = True          # R3: 154kV 응답 필수
+REQUIRE_154 = False          # R3: 154kV 응답 필수
 CBR_MISSING_TO_REF = False   # R4: 차단기 무응답은 참고등급
 
 N154, N229 = "전력공급154kV_변전소수", "전력공급229kV_변전소수"
