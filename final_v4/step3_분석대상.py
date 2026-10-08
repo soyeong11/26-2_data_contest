@@ -16,6 +16,7 @@
   그 외        분석대상
   ※ 2026-10-06 결정: 전력피쳐는 용량점수(B안, max(22.9kV, 154kV) MW)만 사용 → REQUIRE_154=False,
     CBR_MISSING_TO_REF=False (R3는 두 전압 모두 무응답일 때만, R4는 비활성)
+  ※ 2026-10-08 결정: INCLUDE_ALL=True → 256곳 전부 분석대상. R1~R3에 걸린 지역은 '사유'만 남김
   ※ 345kV 공급지역 없음(0)은 결측이 아니라 '345kV 공급가능지역에 포함 안 됨'이라는 실제 값 → 분석대상 유지
   ※ 22.9kV만 없는 지역은 범위에서 빼지 않음 (가중치 0.1). 4단계에서 0으로 볼지 결측으로 볼지 결정 — 플래그만 붙임
 
@@ -36,6 +37,7 @@ OUT = os.path.join(DATA, f"분석대상_분류_256_{TAG}.csv")
 OLD_GLOB = os.path.join(HERE, "..", "final_v3", "데이터셋", "전력_최종피쳐_공유용_v3_*.csv")
 
 REQUIRE_154 = False         # R3: False = 22.9kV·154kV 둘 다 없을 때만 무응답 (B안: 둘 중 큰 MW 사용, 2026-10-06)
+INCLUDE_ALL = True          # True = 256곳 전부 분석대상 (R1~R3 해당 지역은 사유만 남기고 0MW로 계산, 2026-10-08)
 CBR_MISSING_TO_REF = False  # R4: False = 차단기 무응답도 분석대상 (전력피쳐에 접속점수 미사용, 2026-10-06)
 
 N154, N229 = "전력공급154kV_변전소수", "전력공급229kV_변전소수"
@@ -71,6 +73,8 @@ def classify(w):
         hit = cond & ~done
         f.loc[hit, ["분류", "사유"]] = [cls, why]
         done |= hit
+    if INCLUDE_ALL:                                # 분류는 전부 분석대상, 걸렸던 규칙은 사유에 남김
+        f["분류"] = "분석대상"
     f["22.9kV결측_분석대상"] = (f["분류"] == "분석대상") & ~f["22.9kV응답"]   # 4단계 처리 결정용
     return f
 
